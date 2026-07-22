@@ -76,7 +76,7 @@ class ReportCard(models.Model):
     student = models.ForeignKey(
         Student, related_name="student_report_car", on_delete=models.CASCADE
     )
-    student_rank = models.IntegerField(max_length=100)
+    student_rank = models.IntegerField()
     date_of_report_generation = models.DateField(auto_now_add=True)
 
     class Meta:
