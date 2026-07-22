@@ -1,0 +1,325 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+  Sultan Academy – Home
+{% endblock %}
+
+{% block content %}
+  <!-- ========== Additional page‑specific styles ========== -->
+  <style>
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 70%);
+      border-radius: 24px;
+      padding: 4rem 2rem;
+      margin-top: 1rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    }
+    .hero-title {
+      font-weight: 800;
+      font-size: 3rem;
+      color: #0a1929;
+      line-height: 1.2;
+    }
+    .hero-title span {
+      color: #0d6efd;
+    }
+    .hero-sub {
+      color: #475569;
+      font-size: 1.2rem;
+      max-width: 500px;
+    }
+    
+    /* Section titles */
+    .section-title {
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: #0a1929;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #0d6efd, #6ea8fe);
+      border-radius: 4px;
+    }
+    .section-title.text-center:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* Course cards */
+    .course-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(13, 110, 253, 0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+      text-align: center;
+    }
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(13, 110, 253, 0.12);
+    }
+    .course-card i {
+      font-size: 2.8rem;
+      color: #0d6efd;
+      background: #e9f0ff;
+      padding: 16px;
+      border-radius: 16px;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .course-card h5 {
+      font-weight: 700;
+      color: #0a1929;
+    }
+    .course-card p {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+    .course-card .badge {
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      background: #e9f0ff;
+      color: #0d6efd;
+    }
+    
+    /* Stats */
+    .stat-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      border: 1px solid #f0f4ff;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .stat-box:hover {
+      background: #f8fbff;
+    }
+    .stat-number {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #0d6efd;
+    }
+    .stat-label {
+      color: #475569;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    
+    /* CTA section */
+    .cta-section {
+      background: linear-gradient(135deg, #0d6efd, #0a58ca);
+      border-radius: 24px;
+      padding: 4rem 2rem;
+      color: #fff;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-weight: 700;
+      font-size: 2.4rem;
+    }
+    .cta-section .btn-outline-light {
+      border-width: 2px;
+      padding: 0.6rem 2.2rem;
+      font-weight: 600;
+    }
+    .cta-section .btn-outline-light:hover {
+      background: #fff;
+      color: #0d6efd;
+    }
+    
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .stat-number {
+        font-size: 2rem;
+      }
+      .cta-section h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+
+  <!-- ============================================================ -->
+  <!-- HERO SECTION -->
+  <!-- ============================================================ -->
+  <section class="hero-section">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h1 class="hero-title">
+          Welcome to <br />
+          <span>Sultan Academy</span>
+        </h1>
+        <p class="hero-sub mt-3">Empowering learners with world‑class courses in technology, business, and creative skills. Start your journey today.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#" class="btn btn-primary rounded-pill px-5 py-2"><i class="bi bi-rocket-takeoff me-1"></i> Explore Courses</a>
+          <a href="#" class="btn btn-outline-secondary rounded-pill px-5 py-2"><i class="bi bi-play-circle me-1"></i> Watch Intro</a>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <!-- Placeholder illustration – replace with your image -->
+        <img src="https://placehold.co/600x400/e9f0ff/0d6efd?text=🎓+Learn+with+us" alt="Academy illustration" class="img-fluid rounded-4 shadow-sm" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ABOUT / INTRODUCTION -->
+  <!-- ============================================================ -->
+  <section class="mt-5">
+    <div class="row align-items-center g-5">
+      <div class="col-md-6">
+        <h2 class="section-title">About Our Academy</h2>
+        <p class="text-secondary mt-3" style="font-size: 1.05rem;">
+          At <strong>Sultan Academy</strong>, we believe in making education accessible, practical, and engaging. Our expert instructors bring years of industry experience to the classroom, ensuring you learn the skills that matter.
+        </p>
+        <p class="text-secondary">Whether you're a beginner looking to start a new career or a professional aiming to upskill, we have a course tailored for you.</p>
+        <div class="d-flex gap-4 mt-3">
+          <div>
+            <span class="fw-bold text-primary" style="font-size: 1.6rem;">10K+</span>
+            <span class="text-secondary d-block">Students</span>
+          </div>
+          <div>
+            <span class="fw-bold text-primary" style="font-size: 1.6rem;">50+</span>
+            <span class="text-secondary d-block">Courses</span>
+          </div>
+          <div>
+            <span class="fw-bold text-primary" style="font-size: 1.6rem;">98%</span>
+            <span class="text-secondary d-block">Satisfaction</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img src="https://placehold.co/500x350/f8fbff/0d6efd?text=📖+Our+Story" alt="About us" class="img-fluid rounded-4 shadow-sm" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- COURSES SECTION -->
+  <!-- ============================================================ -->
+  <section class="mt-5">
+    <div class="text-center mb-4">
+      <h2 class="section-title text-center">Our Popular Courses</h2>
+      <p class="text-secondary" style="max-width: 600px; margin: 0.5rem auto 0;">Discover the most in‑demand programs designed to boost your career.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Course 1 -->
+      <div class="col-md-4">
+        <div class="course-card">
+          <i class="bi bi-code-slash"></i>
+          <h5>Web Development</h5>
+          <p>Build modern websites with HTML, CSS, JavaScript, React, and Node.js.</p>
+          <span class="badge">12 weeks</span>
+        </div>
+      </div>
+      <!-- Course 2 -->
+      <div class="col-md-4">
+        <div class="course-card">
+          <i class="bi bi-bar-chart-line"></i>
+          <h5>Data Science</h5>
+          <p>Master Python, SQL, machine learning, and data visualization techniques.</p>
+          <span class="badge">14 weeks</span>
+        </div>
+      </div>
+      <!-- Course 3 -->
+      <div class="col-md-4">
+        <div class="course-card">
+          <i class="bi bi-phone"></i>
+          <h5>App Development</h5>
+          <p>Create cross‑platform mobile apps using Flutter and React Native.</p>
+          <span class="badge">10 weeks</span>
+        </div>
+      </div>
+      <!-- Extra course -->
+      <div class="col-md-4">
+        <div class="course-card">
+          <i class="bi bi-cloud-upload"></i>
+          <h5>Cloud Computing</h5>
+          <p>Learn AWS, Azure, and Google Cloud to deploy scalable applications.</p>
+          <span class="badge">8 weeks</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="course-card">
+          <i class="bi bi-robot"></i>
+          <h5>AI & Machine Learning</h5>
+          <p>Deep dive into neural networks, NLP, and computer vision.</p>
+          <span class="badge">16 weeks</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="course-card">
+          <i class="bi bi-briefcase"></i>
+          <h5>Business & Management</h5>
+          <p>Develop leadership, marketing, and strategic thinking skills.</p>
+          <span class="badge">6 weeks</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="#" class="btn btn-outline-primary rounded-pill px-5 py-2">View All Courses <i class="bi bi-arrow-right ms-1"></i></a>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- STATS SECTION -->
+  <!-- ============================================================ -->
+  <section class="mt-5">
+    <div class="row g-4">
+      <div class="col-6 col-md-3">
+        <div class="stat-box">
+          <div class="stat-number">10K+</div>
+          <div class="stat-label">Students Enrolled</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-box">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Expert Courses</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-box">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Satisfaction Rate</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-box">
+          <div class="stat-number">4.9</div>
+          <div class="stat-label">Average Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CALL TO ACTION -->
+  <!-- ============================================================ -->
+  <section class="mt-5 cta-section">
+    <h2>Ready to Start Your Learning Journey?</h2>
+    <p class="lead mt-2" style="max-width: 500px; margin: 0 auto; opacity: 0.9;">Join thousands of students and unlock your potential today.</p>
+    <a href="#" class="btn btn-outline-light rounded-pill mt-3">Get Started Now <i class="bi bi-arrow-right ms-1"></i></a>
+  </section>
+{% endblock %}

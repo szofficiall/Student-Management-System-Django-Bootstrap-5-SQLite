@@ -1,0 +1,193 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+  Student Result
+{% endblock %}
+
+{% block content %}
+  <style>
+    body {
+      background: #f4f7fc;
+    }
+    
+    .result-card {
+      max-width: 1100px;
+      margin: 40px auto;
+      border: none;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+    
+    .result-header {
+      background: linear-gradient(135deg, #2563eb, #4f46e5, #7c3aed);
+      color: white;
+      padding: 35px;
+      text-align: center;
+    }
+    
+    .result-header h2 {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    
+    .result-header p {
+      margin: 0;
+      opacity: 0.9;
+    }
+    
+    .info-box {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: 0.3s;
+      height: 100%;
+    }
+    
+    .info-box:hover {
+      transform: translateY(-5px);
+    }
+    
+    .info-title {
+      color: #6c757d;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    
+    .info-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0d6efd;
+    }
+    
+    .table {
+      margin-bottom: 0;
+    }
+    
+    .table thead {
+      background: #0d6efd;
+      color: white;
+    }
+    
+    .table thead th {
+      text-align: center;
+    }
+    
+    .table tbody td {
+      vertical-align: middle;
+      text-align: center;
+    }
+    
+    .table tbody tr:hover {
+      background: #f8f9ff;
+    }
+    
+    .mark-badge {
+      background: #198754;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-weight: 600;
+    }
+    
+    .total-card {
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+      color: white;
+    }
+    
+    .empty-data {
+      padding: 30px;
+      color: gray;
+    }
+    
+    @media (max-width: 768px) {
+      .info-value {
+        font-size: 18px;
+      }
+    
+      .result-header {
+        padding: 25px;
+      }
+    }
+  </style>
+
+  <div class="container">
+    <div class="card result-card">
+      <div class="result-header">
+        <h2>Student Result Card</h2>
+
+        <p>Sultan Academy Student Management System</p>
+      </div>
+
+      <div class="card-body p-4">
+        <div class="row g-4 mb-4">
+          <div class="col-md-4">
+            <div class="info-box">
+              <div class="info-title">Student Name</div>
+
+              <div class="info-value">{{ student }}</div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="info-box">
+              <div class="info-title">Student ID</div>
+
+              <div class="info-value">{{ student_id }}</div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="info-box total-card">
+              <div class="info-title text-white">Total Marks</div>
+
+              <div class="info-value text-white">{{ total_marks }}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover table-bordered">
+            <thead>
+              <tr>
+                <th width="10%">#</th>
+
+                <th>Subject</th>
+
+                <th width="20%">Marks</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for mark in queryset %}
+                <tr>
+                  <td>{{ forloop.counter }}</td>
+
+                  <td>{{ mark.subject }}</td>
+
+                  <td>
+                    <span class="mark-badge">{{ mark.marks }}</span>
+                  </td>
+                </tr>
+              {% empty %}
+                <tr>
+                  <td colspan="3" class="empty-data">No Result Found</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-end mb-4">
+    <a href="{% url 'download_result_pdf' student_id %}" class="btn btn-success btn-lg">
+      <i class="fa-solid fa-download me-2"></i>
+      Download Result Card
+    </a>
+  </div>
+{% endblock %}

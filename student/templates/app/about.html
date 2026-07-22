@@ -1,0 +1,375 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}About Us – Sultan Academy{% endblock %}
+
+{% block content %}
+
+<!-- ========== Additional page‑specific styles ========== -->
+<style>
+    /* ----- Hero / Banner ----- */
+    .about-hero {
+        background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 70%);
+        border-radius: 24px;
+        padding: 4rem 2rem;
+        margin-top: 1rem;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    }
+    .about-hero h1 {
+        font-weight: 800;
+        font-size: 3rem;
+        color: #0a1929;
+    }
+    .about-hero h1 span {
+        color: #0d6efd;
+    }
+    .about-hero p {
+        color: #475569;
+        font-size: 1.2rem;
+        max-width: 600px;
+    }
+
+    /* ----- Section titles ----- */
+    .section-title {
+        font-weight: 700;
+        font-size: 2.2rem;
+        color: #0a1929;
+        position: relative;
+        display: inline-block;
+    }
+    .section-title:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, #0d6efd, #6ea8fe);
+        border-radius: 4px;
+    }
+    .section-title.text-center:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* ----- Mission / Vision cards ----- */
+    .mv-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 2rem 1.5rem;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(13, 110, 253, 0.06);
+        height: 100%;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .mv-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(13, 110, 253, 0.12);
+    }
+    .mv-card i {
+        font-size: 2.6rem;
+        color: #0d6efd;
+        background: #e9f0ff;
+        padding: 16px;
+        border-radius: 16px;
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+    .mv-card h4 {
+        font-weight: 700;
+        color: #0a1929;
+    }
+    .mv-card p {
+        color: #64748b;
+    }
+
+    /* ----- Team member cards ----- */
+    .team-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 2rem 1.5rem;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(13, 110, 253, 0.06);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        height: 100%;
+    }
+    .team-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(13, 110, 253, 0.12);
+    }
+    .team-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #e9f0ff, #d4e2ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 2.8rem;
+        color: #0d6efd;
+    }
+    .team-card h5 {
+        font-weight: 700;
+        color: #0a1929;
+        margin-bottom: 0.2rem;
+    }
+    .team-card .role {
+        font-size: 0.9rem;
+        color: #0d6efd;
+        font-weight: 500;
+    }
+    .team-card p {
+        color: #64748b;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    /* ----- Stats / counters ----- */
+    .stat-box {
+        background: #fff;
+        border-radius: 20px;
+        padding: 2rem 1rem;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+        border: 1px solid #f0f4ff;
+        text-align: center;
+        transition: background 0.2s;
+    }
+    .stat-box:hover {
+        background: #f8fbff;
+    }
+    .stat-number {
+        font-size: 2.8rem;
+        font-weight: 800;
+        color: #0d6efd;
+    }
+    .stat-label {
+        color: #475569;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    /* ----- Responsive ----- */
+    @media (max-width: 768px) {
+        .about-hero h1 {
+            font-size: 2.2rem;
+        }
+        .section-title {
+            font-size: 1.8rem;
+        }
+        .stat-number {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+<!-- ============================================================ -->
+<!-- HERO / BANNER -->
+<!-- ============================================================ -->
+<section class="about-hero">
+    <div class="row align-items-center g-4">
+        <div class="col-md-7">
+            <h1>
+                About <span>Sultan Academy</span>
+            </h1>
+            <p class="mt-3">
+                We are a premier learning platform dedicated to empowering
+                individuals with the skills they need to thrive in a rapidly
+                changing world. Our mission is to make high‑quality education
+                accessible, practical, and inspiring.
+            </p>
+            <div class="d-flex flex-wrap gap-3 mt-3">
+                <a href="#mission" class="btn btn-primary rounded-pill px-4 py-2">
+                    <i class="bi bi-compass me-1"></i> Our Mission
+                </a>
+                <a href="#team" class="btn btn-outline-secondary rounded-pill px-4 py-2">
+                    <i class="bi bi-people me-1"></i> Meet the Team
+                </a>
+            </div>
+        </div>
+        <div class="col-md-5 text-center">
+            <img src="https://placehold.co/500x350/e9f0ff/0d6efd?text=🏫+About+Us" 
+                 alt="About Sultan Academy" 
+                 class="img-fluid rounded-4 shadow-sm" />
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- MISSION & VISION -->
+<!-- ============================================================ -->
+<section id="mission" class="mt-5">
+    <div class="text-center mb-4">
+        <h2 class="section-title text-center">Our Mission &amp; Vision</h2>
+        <p class="text-secondary" style="max-width: 600px; margin: 0.5rem auto 0;">
+            Driven by purpose, guided by excellence.
+        </p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="mv-card">
+                <i class="bi bi-rocket-takeoff"></i>
+                <h4>Our Mission</h4>
+                <p>
+                    To provide world‑class, industry‑relevant education that bridges
+                    the gap between theory and practice. We empower learners to build
+                    meaningful careers and become lifelong innovators.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mv-card">
+                <i class="bi bi-eye"></i>
+                <h4>Our Vision</h4>
+                <p>
+                    To become a global leader in online education, fostering a
+                    community where every learner — regardless of background —
+                    can unlock their full potential and shape the future.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CORE VALUES -->
+<!-- ============================================================ -->
+<section class="mt-5">
+    <div class="text-center mb-4">
+        <h2 class="section-title text-center">Our Core Values</h2>
+        <p class="text-secondary" style="max-width: 500px; margin: 0.5rem auto 0;">
+            The principles that guide everything we do.
+        </p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-3 col-6">
+            <div class="mv-card text-center">
+                <i class="bi bi-heart-fill" style="font-size: 2rem;"></i>
+                <h6 style="font-weight: 700; margin-top: 0.5rem;">Passion</h6>
+                <p style="font-size: 0.9rem;">We love what we do and it shows.</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="mv-card text-center">
+                <i class="bi bi-star-fill" style="font-size: 2rem;"></i>
+                <h6 style="font-weight: 700; margin-top: 0.5rem;">Excellence</h6>
+                <p style="font-size: 0.9rem;">We never settle for less than the best.</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="mv-card text-center">
+                <i class="bi bi-people-fill" style="font-size: 2rem;"></i>
+                <h6 style="font-weight: 700; margin-top: 0.5rem;">Community</h6>
+                <p style="font-size: 0.9rem;">Together we grow, learn, and succeed.</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="mv-card text-center">
+                <i class="bi bi-lightbulb-fill" style="font-size: 2rem;"></i>
+                <h6 style="font-weight: 700; margin-top: 0.5rem;">Innovation</h6>
+                <p style="font-size: 0.9rem;">We embrace change and new ideas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TEAM SECTION -->
+<!-- ============================================================ -->
+<section id="team" class="mt-5">
+    <div class="text-center mb-4">
+        <h2 class="section-title text-center">Meet Our Instructors</h2>
+        <p class="text-secondary" style="max-width: 500px; margin: 0.5rem auto 0;">
+            Industry experts dedicated to your success.
+        </p>
+    </div>
+
+    <div class="row g-4">
+        <!-- Team Member 1 -->
+        <div class="col-md-3 col-6">
+            <div class="team-card">
+                <div class="team-avatar">👩‍🏫</div>
+                <h5>Dr. Ayesha Khan</h5>
+                <div class="role">Lead Instructor – Data Science</div>
+                <p>PhD in ML, 10+ years of industry experience.</p>
+            </div>
+        </div>
+        <!-- Team Member 2 -->
+        <div class="col-md-3 col-6">
+            <div class="team-card">
+                <div class="team-avatar">👨‍💻</div>
+                <h5>Mr. Ali Raza</h5>
+                <div class="role">Senior Web Developer</div>
+                <p>Full‑stack expert, previously at Google.</p>
+            </div>
+        </div>
+        <!-- Team Member 3 -->
+        <div class="col-md-3 col-6">
+            <div class="team-card">
+                <div class="team-avatar">👩‍💼</div>
+                <h5>Ms. Fatima Noor</h5>
+                <div class="role">Business &amp; Leadership Coach</div>
+                <p>MBA, former Fortune 500 executive.</p>
+            </div>
+        </div>
+        <!-- Team Member 4 -->
+        <div class="col-md-3 col-6">
+            <div class="team-card">
+                <div class="team-avatar">👨‍🔬</div>
+                <h5>Dr. Usman Malik</h5>
+                <div class="role">AI &amp; Robotics Specialist</div>
+                <p>PhD in AI, published researcher.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- STATS / COUNTERS -->
+<!-- ============================================================ -->
+<section class="mt-5">
+    <div class="row g-4">
+        <div class="col-6 col-md-3">
+            <div class="stat-box">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Students</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-box">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Courses</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-box">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Satisfaction</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-box">
+                <div class="stat-number">4.9</div>
+                <div class="stat-label">Avg. Rating</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CTA – Join Us -->
+<!-- ============================================================ -->
+<section class="mt-5" style="background: linear-gradient(135deg, #0d6efd, #0a58ca); border-radius: 24px; padding: 4rem 2rem; color: #fff; text-align: center;">
+    <h2 style="font-weight: 700; font-size: 2.4rem;">Become Part of Our Story</h2>
+    <p style="max-width: 500px; margin: 0.5rem auto 0; opacity: 0.9;">
+        Join thousands of learners and start your journey with Sultan Academy.
+    </p>
+    {% comment %} <a href="{% url 'signup' %}" class="btn btn-light rounded-pill px-5 py-2 mt-3" style="font-weight: 600; color: #0d6efd;">
+        Sign Up Now <i class="bi bi-arrow-right ms-1"></i>
+    </a> {% endcomment %}
+</section>
+
+{% endblock %}

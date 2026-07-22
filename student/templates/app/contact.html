@@ -1,0 +1,314 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+  Contact Us – Sultan Academy
+{% endblock %}
+
+{% block content %}
+  <!-- ========== Additional page‑specific styles ========== -->
+  <style>
+    /* ----- Hero / Banner ----- */
+    .contact-hero {
+      background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 70%);
+      border-radius: 24px;
+      padding: 4rem 2rem;
+      margin-top: 1rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    }
+    .contact-hero h1 {
+      font-weight: 800;
+      font-size: 3rem;
+      color: #0a1929;
+    }
+    .contact-hero h1 span {
+      color: #0d6efd;
+    }
+    .contact-hero p {
+      color: #475569;
+      font-size: 1.2rem;
+      max-width: 500px;
+    }
+    
+    /* ----- Section titles ----- */
+    .section-title {
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: #0a1929;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #0d6efd, #6ea8fe);
+      border-radius: 4px;
+    }
+    .section-title.text-center:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* ----- Contact info cards ----- */
+    .info-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(13, 110, 253, 0.06);
+      text-align: center;
+      height: 100%;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(13, 110, 253, 0.1);
+    }
+    .info-card i {
+      font-size: 2.4rem;
+      color: #0d6efd;
+      background: #e9f0ff;
+      padding: 14px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .info-card h5 {
+      font-weight: 700;
+      color: #0a1929;
+    }
+    .info-card p {
+      color: #64748b;
+      margin-bottom: 0.2rem;
+    }
+    .info-card a {
+      color: #0d6efd;
+      text-decoration: none;
+    }
+    .info-card a:hover {
+      text-decoration: underline;
+    }
+    
+    /* ----- Contact form ----- */
+    .contact-form {
+      background: #fff;
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(13, 110, 253, 0.06);
+    }
+    .contact-form .form-control {
+      border-radius: 12px;
+      padding: 0.7rem 1rem;
+      border: 1.5px solid #e9edf2;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .contact-form .form-control:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+    }
+    .contact-form .form-label {
+      font-weight: 600;
+      color: #0a1929;
+    }
+    .contact-form .btn-primary {
+      padding: 0.7rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+    
+    /* ----- Map placeholder ----- */
+    .map-placeholder {
+      background: #e9f0ff;
+      border-radius: 20px;
+      padding: 4rem 2rem;
+      text-align: center;
+      color: #0d6efd;
+      border: 2px dashed #c5d9f7;
+    }
+    .map-placeholder i {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* ----- Responsive ----- */
+    @media (max-width: 768px) {
+      .contact-hero h1 {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .contact-form {
+        padding: 1.5rem 1rem;
+      }
+    }
+  </style>
+
+  <!-- ============================================================ -->
+  <!-- HERO / BANNER -->
+  <!-- ============================================================ -->
+  <section class="contact-hero">
+    <div class="row align-items-center g-4">
+      <div class="col-md-7">
+        <h1>Get in <span>Touch</span></h1>
+        <p class="mt-3">Have questions, feedback, or need support? We'd love to hear from you. Reach out using the form below or connect with us through our contact details.</p>
+        <div class="d-flex flex-wrap gap-3 mt-3">
+          <a href="#form" class="btn btn-primary rounded-pill px-4 py-2"><i class="bi bi-envelope me-1"></i> Send a Message</a>
+          <a href="#map" class="btn btn-outline-secondary rounded-pill px-4 py-2"><i class="bi bi-geo-alt me-1"></i> Find Us</a>
+        </div>
+      </div>
+      <div class="col-md-5 text-center">
+        <img src="https://placehold.co/500x350/e9f0ff/0d6efd?text=📬+Contact+Us" alt="Contact illustration" class="img-fluid rounded-4 shadow-sm" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CONTACT INFORMATION CARDS -->
+  <!-- ============================================================ -->
+  <section class="mt-5">
+    <div class="row g-4">
+      <!-- Address -->
+      <div class="col-md-3 col-6">
+        <div class="info-card">
+          <i class="bi bi-geo-alt"></i>
+          <h5>Address</h5>
+          <p>
+            123 Knowledge Street,<br />Dubai, UAE
+          </p>
+        </div>
+      </div>
+      <!-- Phone -->
+      <div class="col-md-3 col-6">
+        <div class="info-card">
+          <i class="bi bi-telephone"></i>
+          <h5>Phone</h5>
+          <p>
+            <a href="tel:+971501234567">+92 300 0000000</a>
+          </p>
+          <p style="font-size: 0.85rem;">Mon–Fri, 9am – 6pm</p>
+        </div>
+      </div>
+      <!-- Email -->
+      <div class="col-md-3 col-6">
+        <div class="info-card">
+          <i class="bi bi-envelope"></i>
+          <h5>Email</h5>
+          <p>
+            <a href="#">support@sultanacademy.com</a>
+          </p>
+          <p style="font-size: 0.85rem;">We reply within 24h</p>
+        </div>
+      </div>
+      <!-- Social -->
+      <div class="col-md-3 col-6">
+        <div class="info-card">
+          <i class="bi bi-share"></i>
+          <h5>Follow Us</h5>
+          <div style="display: flex; justify-content: center; gap: 0.8rem; font-size: 1.4rem;">
+            <a href="#" style="color: #0d6efd;"><i class="bi bi-facebook"></i></a>
+            <a href="#" style="color: #0d6efd;"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" style="color: #0d6efd;"><i class="bi bi-linkedin"></i></a>
+            <a href="#" style="color: #0d6efd;"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CONTACT FORM + MAP SIDEBY SIDE -->
+  <!-- ============================================================ -->
+  <section id="form" class="mt-5">
+    <div class="row g-5">
+      <!-- Left: Contact Form -->
+      <div class="col-lg-6">
+        <h2 class="section-title" style="margin-bottom: 1.5rem;">Send a Message</h2>
+        <div class="contact-form">
+          <form method="POST">
+            {% csrf_token %}
+
+            <input type="text" name="name" class="form-control" placeholder="Your Name" required />
+
+            <input type="email" name="email" class="form-control mt-3" placeholder="Email" required />
+
+            <input type="text" name="subject" class="form-control mt-3" placeholder="Subject" required />
+
+            <textarea name="message" class="form-control mt-3" rows="5" placeholder="Message" required></textarea>
+
+            <button class="btn btn-primary mt-3">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right: Map / Location -->
+      <div class="col-lg-6">
+        <h2 class="section-title" style="margin-bottom: 1.5rem;">Find Us</h2>
+        <div id="map" class="map-placeholder">
+          <i class="bi bi-map"></i>
+          <h5 style="font-weight: 600;">Interactive Map</h5>
+          <p style="color: #475569; max-width: 300px; margin: 0 auto;">Sultan Academy, 123 Knowledge Street, Dubai, UAE</p>
+          <!-- Replace with your Google Maps embed or static image -->
+          <img src="https://placehold.co/600x300/e9f0ff/0d6efd?text=📍+Map+Placeholder" alt="Map location" class="img-fluid rounded-3 mt-2" />
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #64748b;">
+            <i class="bi bi-clock me-1"></i> Open Mon–Fri 9am–6pm
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FAQ / ADDITIONAL HELP -->
+  <!-- ============================================================ -->
+  <section class="mt-5">
+    <div class="text-center mb-4">
+      <h2 class="section-title text-center">Frequently Asked Questions</h2>
+      <p class="text-secondary" style="max-width: 500px; margin: 0.5rem auto 0;">Quick answers to common questions.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div style="background: #fff; border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.03); border: 1px solid #f0f4ff;">
+          <h6 style="font-weight: 700; color: #0a1929;"><i class="bi bi-question-circle me-1 text-primary"></i> How do I enroll?</h6>
+          <p style="color: #64748b; margin-bottom: 0;">Simply click “Sign Up” on our website, choose a course, and complete the payment. You'll get instant access.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div style="background: #fff; border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.03); border: 1px solid #f0f4ff;">
+          <h6 style="font-weight: 700; color: #0a1929;"><i class="bi bi-question-circle me-1 text-primary"></i> Is there a refund policy?</h6>
+          <p style="color: #64748b; margin-bottom: 0;">Yes, we offer a 14‑day money‑back guarantee for all courses. No questions asked.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div style="background: #fff; border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.03); border: 1px solid #f0f4ff;">
+          <h6 style="font-weight: 700; color: #0a1929;"><i class="bi bi-question-circle me-1 text-primary"></i> Do you offer certificates?</h6>
+          <p style="color: #64748b; margin-bottom: 0;">Absolutely! Every course includes a verified certificate upon completion.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div style="background: #fff; border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.03); border: 1px solid #f0f4ff;">
+          <h6 style="font-weight: 700; color: #0a1929;"><i class="bi bi-question-circle me-1 text-primary"></i> How can I contact support?</h6>
+          <p style="color: #64748b; margin-bottom: 0;">
+            Email us at <a href="#" style="color: #0d6efd;">support@sultanacademy.com</a> or use the form above.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CTA – Quick Connect -->
+  <!-- ============================================================ -->
+  <section class="mt-5" style="background: linear-gradient(135deg, #0d6efd, #0a58ca); border-radius: 24px; padding: 3rem 2rem; color: #fff; text-align: center;">
+    <h3 style="font-weight: 700;">We're Here to Help</h3>
+    <p style="max-width: 450px; margin: 0.5rem auto 0; opacity: 0.9;">Reach out anytime – we're just a message away.</p>
+    <a href="#" class="btn btn-light rounded-pill px-5 py-2 mt-3" style="font-weight: 600; color: #0d6efd;"><i class="bi bi-envelope me-1"></i> Email Us Directly</a>
+  </section>
+{% endblock %}

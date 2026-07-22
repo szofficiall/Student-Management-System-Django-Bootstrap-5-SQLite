@@ -1,0 +1,95 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+  Login – Sultan Academy
+{% endblock %}
+
+{% block content %}
+  <style>
+    .login-wrapper {
+      max-width: 480px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(13, 110, 253, 0.06);
+    }
+    .login-wrapper h2 {
+      font-weight: 700;
+      color: #0a1929;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .login-wrapper .subtitle {
+      text-align: center;
+      color: #64748b;
+      margin-bottom: 2rem;
+    }
+    .login-wrapper .form-control {
+      border-radius: 12px;
+      padding: 0.7rem 1rem;
+      border: 1.5px solid #e9edf2;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .login-wrapper .form-control:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+    }
+    .login-wrapper .form-label {
+      font-weight: 600;
+      color: #0a1929;
+    }
+    .login-wrapper .btn-primary {
+      padding: 0.7rem;
+      border-radius: 50px;
+      font-weight: 600;
+      width: 100%;
+    }
+    .login-wrapper .extra-links {
+      text-align: center;
+      margin-top: 1.5rem;
+      color: #64748b;
+    }
+    .login-wrapper .extra-links a {
+      color: #0d6efd;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .login-wrapper .extra-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <div class="login-wrapper">
+    <h2>Welcome Back</h2>
+    <p class="subtitle">Log in to your account to continue learning.</p>
+
+    <form method="post" action="#">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required />
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="remember" />
+        <label class="form-check-label" for="remember">Remember me</label>
+      </div>
+      <button type="submit" class="btn btn-primary"><i class="bi bi-box-arrow-in-right me-1"></i> Log In</button>
+    </form>
+
+    <div class="extra-links">
+      <p>
+        Don't have an account? <a href="{% url 'signup_page' %}">Sign up now</a>
+      </p>
+      <p>
+        <a href="#">Forgot your password?</a>
+      </p>
+    </div>
+  </div>
+{% endblock %}
