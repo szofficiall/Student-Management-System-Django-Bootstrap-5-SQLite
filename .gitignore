@@ -1,15 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Django
+db.sqlite3
+*.log
+
+# Environment
+.env
 venv/
-env/
 django-env/
 
-__pycache__/
-
-*.pyc
-
+# Static
 staticfiles/
 
+# Media
 media/
 
-.env
-
+# VS Code
 .vscode/
