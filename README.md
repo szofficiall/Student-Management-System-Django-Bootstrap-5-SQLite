@@ -233,44 +233,6 @@ http://127.0.0.1:8000/
 
 ---
 
-# 📷 Screenshots
-
-## 🏠 Home Page
-
-(Add Screenshot)
-
----
-
-## 🔐 Login Page
-
-(Add Screenshot)
-
----
-
-## 📝 Signup Page
-
-(Add Screenshot)
-
----
-
-## 👨‍🎓 Student List
-
-(Add Screenshot)
-
----
-
-## 📊 Student Result
-
-(Add Screenshot)
-
----
-
-## 📄 PDF Result
-
-(Add Screenshot)
-
----
-
 # 🎯 Future Improvements
 
 - Admin Dashboard
