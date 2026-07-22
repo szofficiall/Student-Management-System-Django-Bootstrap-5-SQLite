@@ -13,7 +13,7 @@ urlpatterns = [
     path("login_page/", login_page, name="login_page"),
     path("signup_page/", signup_page, name="signup_page"),
     path("student_view/", student_view, name="student_view"),
-    path("student_result/<str:student_id>//", student_result, name="student_result"),
+    path("student_result/<str:student_id>/", student_result, name="student_result"),
     path(
         "student_result/<str:student_id>/pdf/",
         download_result_pdf,
